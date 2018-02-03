@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir Next';
+}
+
+a {
+  text-decoration: none;
+  color: #484848;
+  font-weight: 500;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+
+/* Custom */
+
+.App {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.DismissButton {
+  width: 150px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background-color: lightblue;
+  padding: 4px;
+  margin: 8px auto;
+}
+
+.DismissButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.LinkContainer {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.ClockContainer {
+  background-color: lightcoral;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.3em;
+  border-radius: 3px;
+  margin: 8px auto;
+  padding: 6px 0;
+  width: 200px;
+}
+
+.ClockContainer:hover {
+  cursor: pointer;
+}

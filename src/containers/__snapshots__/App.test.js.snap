@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App has a valid snapshot 1`] = `
+<div
+  className="App"
+>
+  <Search
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value="redux"
+  />
+  <Table
+    list={Array []}
+    onDismiss={[Function]}
+  />
+  <div>
+    <Button
+      onClick={[Function]}
+    >
+      More
+    </Button>
+  </div>
+</div>
+`;

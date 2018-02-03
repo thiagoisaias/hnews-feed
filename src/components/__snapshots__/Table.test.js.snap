@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table has a valid snapshot 1`] = `
+<React.Fragment>
+  <div
+    key="1"
+  >
+    <div>
+      <a
+        href="random.url.test"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        random item test
+      </a>
+    </div>
+    <small>
+      553.43
+    </small>
+    <div>
+      <Button
+        onClick={[Function]}
+      >
+        Dismiss
+      </Button>
+    </div>
+  </div>
+  <div
+    key="2"
+  >
+    <div>
+      <a
+        href="random.url.test.2"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        random item 2 test 
+      </a>
+    </div>
+    <small>
+      253.43
+    </small>
+    <div>
+      <Button
+        onClick={[Function]}
+      >
+        Dismiss
+      </Button>
+    </div>
+  </div>
+</React.Fragment>
+`;
