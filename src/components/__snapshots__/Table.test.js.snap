@@ -1,52 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table has a valid snapshot 1`] = `
-<React.Fragment>
-  <div
+<styled.div>
+  <TableItem
+    author="Author Lorem"
+    created_at="2017-05-05T14:14:17.000Z"
     key="1"
-  >
-    <div>
-      <a
-        href="random.url.test"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        random item test
-      </a>
-    </div>
-    <small>
-      553.43
-    </small>
-    <div>
-      <button
-        onClick={[Function]}
-      >
-        Dismiss
-      </button>
-    </div>
-  </div>
-  <div
+    objectID={1}
+    onDismiss={[Function]}
+    points={553.43}
+    title="random item test"
+    url="random.url.test"
+  />
+  <TableItem
+    author="Author Lorem"
+    created_at="2017-05-05T14:14:17.000Z"
     key="2"
-  >
-    <div>
-      <a
-        href="random.url.test.2"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        random item 2 test 
-      </a>
-    </div>
-    <small>
-      253.43
-    </small>
-    <div>
-      <button
-        onClick={[Function]}
-      >
-        Dismiss
-      </button>
-    </div>
-  </div>
-</React.Fragment>
+    objectID={2}
+    onDismiss={[Function]}
+    points={253.43}
+    title="random item 2 test "
+    url="random.url.test.2"
+  />
+</styled.div>
 `;

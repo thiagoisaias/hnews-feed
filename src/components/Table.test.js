@@ -10,12 +10,16 @@ describe("Table", () => {
         objectID: 1,
         url: "random.url.test",
         title: "random item test",
+        author: "Author Lorem",
+        created_at: "2017-05-05T14:14:17.000Z",
         points: 553.43
       },
       {
         objectID: 2,
         url: "random.url.test.2",
         title: "random item 2 test ",
+        author: "Author Lorem",
+        created_at: "2017-05-05T14:14:17.000Z",
         points: 253.43
       }
     ];
@@ -35,12 +39,16 @@ describe("Table", () => {
         objectID: 1,
         url: "random.url.test",
         title: "random item test",
+        author: "Author Lorem",
+        created_at: "2017-05-05T14:14:17.000Z",
         points: 553.43
       },
       {
         objectID: 2,
         url: "random.url.test.2",
         title: "random item 2 test ",
+        author: "Author Lorem",
+        created_at: "2017-05-05T14:14:17.000Z",
         points: 253.43
       }
     ];
