@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+import styled from "styled-components";
 import Table from "../components/Table";
 import Header from "../components/Header";
 import axios from "axios";
@@ -10,6 +11,11 @@ const PATH_SEARCH = "/search";
 const PARAM_SEARCH = "query=";
 const PARAM_PAGE = "page=";
 const PARAM_HPP = "hitsPerPage=";
+
+const Container = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -107,7 +113,7 @@ class App extends Component {
     }
 
     return (
-      <Fragment>
+      <Container>
         <Header
           value={searchTerm}
           onChange={this.onSearchChange}
@@ -117,7 +123,7 @@ class App extends Component {
         <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
           More
         </button>
-      </Fragment>
+      </Container>
     );
   }
 }

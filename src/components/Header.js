@@ -10,6 +10,8 @@ const Container = styled.div`
   justify-content: center;
   align-content: center;
   background-color: #333;
+  position: fixed;
+  top: 0;
 `;
 
 const Header = props => {

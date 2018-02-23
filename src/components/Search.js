@@ -11,18 +11,27 @@ const FormContainer = styled.form`
 const FormInput = styled.input`
   border: none;
   outline: none;
-  border-radius: 3px;
-  padding: 6px;
+  padding: 12px;
   margin: 0 8px;
   color: #333;
+  @media (max-width: 425px) {
+    width: 180px;
+  }
+  @media (min-width: 426px) {
+    width: 300px;
+  }
 `;
 
 const FormButton = styled.button`
   border: none;
   color: #fff;
   background-color: lightsalmon;
-  border-radius: 3px;
-  padding: 6px;
+  padding: 12px;
+  outline: none;
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `;
 
 

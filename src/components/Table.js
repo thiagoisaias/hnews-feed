@@ -1,10 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
+
+const Container = styled.div`
+  padding: 32px;
+  background-color: #f6f6ef;
+  margin-top: 70px;
+`;
 
 const Table = props => {
   const { list, onDismiss } = props;
   return (
-    <Fragment>
+    <Container>
       {list.map(item => (
         <div key={item.objectID}>
           <div>
@@ -18,7 +25,7 @@ const Table = props => {
           </div>
         </div>
       ))}
-    </Fragment>
+    </Container>
   );
 };
 
