@@ -10,10 +10,12 @@ const FormContainer = styled.form`
 
 const FormInput = styled.input`
   border: none;
+  border-radius: 3px;
   outline: none;
   padding: 12px;
   margin: 0 8px;
-  color: #333;
+  color: #484848;
+  cursor: default;
   @media (max-width: 425px) {
     width: 180px;
   }
@@ -24,16 +26,16 @@ const FormInput = styled.input`
 
 const FormButton = styled.button`
   border: none;
+  border-radius: 3px;
   color: #fff;
-  background-color: lightsalmon;
+  background-color: #ff742b;
   padding: 12px;
   outline: none;
   &:hover {
-    opacity: 0.8;
+    background-color: #ff641b;
     cursor: pointer;
   }
 `;
-
 
 const Search = props => {
   const { value, onChange, onSubmit } = props;
