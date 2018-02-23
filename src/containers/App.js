@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import axios from "axios";
 
 const DEFAULT_QUERY = "redux";
-const DEFAULT_HPP = "100";
+const DEFAULT_HPP = "20";
 const PATH_BASE = "https://hn.algolia.com/api/v1";
 const PATH_SEARCH = "/search";
 const PARAM_SEARCH = "query=";
@@ -55,7 +55,7 @@ class App extends Component {
   };
 
   needsToFetchStories = searchTerm => {
-    console.log("Precisa buscar novos hits?", !this.state.results[searchTerm]);
+    console.log("Does it need to fetch new hits?", !this.state.results[searchTerm]);
     return !this.state.results[searchTerm];
   };
 
@@ -76,6 +76,9 @@ class App extends Component {
     const filteredList = hits.filter(item => {
       return item.objectID !== id;
     });
+
+    console.log(id, "Called dismiss function");
+
     this.setState({
       results: {
         ...results,
@@ -121,7 +124,7 @@ class App extends Component {
         />
         <Table list={list} onDismiss={this.onDismiss} />
         <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
-          More
+          Load More
         </button>
       </Container>
     );
