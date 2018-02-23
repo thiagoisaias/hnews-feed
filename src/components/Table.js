@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
 
 const Table = props => {
   const { list, onDismiss } = props;
@@ -15,7 +14,7 @@ const Table = props => {
           </div>
           <small>{item.points}</small>
           <div>
-            <Button onClick={() => onDismiss(item.objectID)}>Dismiss</Button>
+            <button onClick={() => onDismiss(item.objectID)}>Dismiss</button>
           </div>
         </div>
       ))}

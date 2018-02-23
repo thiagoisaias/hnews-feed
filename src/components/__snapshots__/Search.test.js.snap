@@ -1,20 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search has a valid snapshot 1`] = `
-<form
+<styled.form
   onSubmit={[Function]}
 >
-  Search
-  <input
+  <styled.input
     onChange={[Function]}
     type="text"
     value=""
   />
-  <button
+  <styled.button
     type="submit"
   >
-     
-     
-  </button>
-</form>
+     Search 
+  </styled.button>
+</styled.form>
 `;

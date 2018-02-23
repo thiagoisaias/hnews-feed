@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import Search from "../components/Search";
+import React, { Component, Fragment } from "react";
 import Table from "../components/Table";
-import Button from "../components/Button";
+import Header from "../components/Header";
 import axios from "axios";
 
 const DEFAULT_QUERY = "redux";
@@ -108,21 +107,17 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <Search
+      <Fragment>
+        <Header
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
         />
         <Table list={list} onDismiss={this.onDismiss} />
-        <div>
-          <Button
-            onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
-          >
-            More
-          </Button>
-        </div>
-      </div>
+        <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
+          More
+        </button>
+      </Fragment>
     );
   }
 }
