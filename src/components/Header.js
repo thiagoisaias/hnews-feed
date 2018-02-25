@@ -6,20 +6,32 @@ import LogoImagePath from "../images/logo-hn.png";
 const Container = styled.div`
   width: 100%;
   max-width: 900px;
-  height: 70px;
+  height: 80px;
   display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #333;
   position: fixed;
   top: 0;
 `;
 
+const Title = styled.div`
+  color: #fff;
+  font-size: 1.25em;
+  cursor: default;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  float: left;
+  margin: 0 32px;
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
 const LogoLink = styled.a`
   line-height: 0;
-  display: block;
-  position: absolute;
-  left: 32px;
   &:hover {
     opacity: 1;
   }
@@ -28,16 +40,18 @@ const LogoLink = styled.a`
 const LogoImage = styled.img`
   width: 40px;
   height: 40px;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
+  margin-right: 16px;
 `;
 
 const Header = props => {
   return (
     <Container>
-      <LogoLink href="/"><LogoImage src={LogoImagePath} /></LogoLink>
+      <LogoContainer>
+        <LogoLink href="/">
+          <LogoImage src={LogoImagePath} />
+        </LogoLink>
+        <Title>Hacker News</Title>
+      </LogoContainer>
       <Search {...props} />
     </Container>
   );

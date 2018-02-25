@@ -13,10 +13,8 @@ const MoreInfoContainer = styled.ul`
   display: flex;
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 0.75em;
   max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
 `;
 
 const MoreInfoItem = styled.li`
@@ -32,8 +30,16 @@ const MoreInfoItem = styled.li`
   &:first-child {
     border: none;
   }
+`;
+
+const MoreInfoUrl = MoreInfoItem.extend`
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @media (max-width: 425px) {
-    display: ${props => (props.smallHide ? "none" : "list-item")};
+    display: none;
   }
 `;
 
@@ -41,18 +47,6 @@ const Title = styled.a`
   color: #484848;
   text-decoration: none;
 `;
-
-// const DismissButton = styled.button`
-//   color: #484848;
-//   border: none;
-//   background-color: inherit;
-//   outline: none;
-//   padding: 0;
-//   &:hover {
-//     opacity: 0.7;
-//     cursor: pointer;
-//   }
-// `;
 
 const TableItem = props => {
   const { title, points, author, created_at, url } = props;
@@ -65,25 +59,22 @@ const TableItem = props => {
         <MoreInfoItem> {points} points</MoreInfoItem>
         <MoreInfoItem> {author} </MoreInfoItem>
         <MoreInfoItem> {moment(created_at).fromNow()} </MoreInfoItem>
-        <MoreInfoItem smallHide>
+        <MoreInfoUrl>
           <a href={url} rel="noopener noreferrer" target="_blank">
             ({url})
           </a>
-        </MoreInfoItem>
+        </MoreInfoUrl>
       </MoreInfoContainer>
-      {/* <DismissButton onClick={() => onDismiss(objectID)}>&times;</DismissButton> */}
     </Container>
   );
 };
 
 TableItem.propTypes = {
-  // objectID: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   points: PropTypes.number.isRequired,
   author: PropTypes.string.isRequired,
   created_at: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  // onDismiss: PropTypes.func.isRequired
+  url: PropTypes.string.isRequired
 };
 
 export default TableItem;

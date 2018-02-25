@@ -3,19 +3,27 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const FormContainer = styled.form`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @media (max-width: 425px) {
+    margin: 0 auto;
+  }
 `;
 
 const FormInput = styled.input`
+  height: 38px;
+  line-height: 0;
   border: none;
   border-radius: 3px;
   outline: none;
-  padding: 12px;
-  margin: 0 8px;
+  padding-left: 12px;
+  margin-right: 8px;
   color: #484848;
   cursor: default;
+
+  &::placeholder {
+    font-size: 12px;
+    color: #ccc;
+  }
+
   @media (max-width: 425px) {
     width: 180px;
   }
@@ -25,6 +33,8 @@ const FormInput = styled.input`
 `;
 
 const FormButton = styled.button`
+  height: 40px;
+  font-size: 12px;
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -32,7 +42,7 @@ const FormButton = styled.button`
   padding: 12px;
   outline: none;
   &:hover {
-    background-color: #ff641b;
+    background-color: #fc9055;
     cursor: pointer;
   }
 `;
@@ -41,7 +51,12 @@ const Search = props => {
   const { value, onChange, onSubmit } = props;
   return (
     <FormContainer onSubmit={onSubmit}>
-      <FormInput type="text" value={value} onChange={onChange} />
+      <FormInput
+        type="text"
+        placeholder="Search stories by title, url or author"
+        value={value}
+        onChange={onChange}
+      />
       <FormButton type="submit"> Search </FormButton>
     </FormContainer>
   );

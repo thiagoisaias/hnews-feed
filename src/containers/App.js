@@ -4,7 +4,7 @@ import Table from "../components/Table";
 import Header from "../components/Header";
 import axios from "axios";
 
-const DEFAULT_QUERY = "redux";
+const DEFAULT_QUERY = "";
 const DEFAULT_HPP = "20";
 const PATH_BASE = "https://hn.algolia.com/api/v1";
 const PATH_SEARCH = "/search";
