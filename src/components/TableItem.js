@@ -22,7 +22,7 @@ const MoreInfoItem = styled.li`
   border-left: 1px solid #e2e2e2;
   padding: 0 8px;
   cursor: default;
-  color: #6f6f6f;
+  color: #777;
 
   &:first-child {
     padding-left: 0;

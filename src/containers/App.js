@@ -4,7 +4,7 @@ import Table from "../components/Table";
 import Header from "../components/Header";
 import axios from "axios";
 
-const DEFAULT_QUERY = "";
+const DEFAULT_QUERY = "React";
 const DEFAULT_HPP = "20";
 const PATH_BASE = "https://hn.algolia.com/api/v1";
 const PATH_SEARCH = "/search";
@@ -55,7 +55,10 @@ class App extends Component {
   };
 
   needsToFetchStories = searchTerm => {
-    console.log("Does it need to fetch new hits?", !this.state.results[searchTerm]);
+    console.log(
+      "Does it need to fetch new hits?",
+      !this.state.results[searchTerm]
+    );
     return !this.state.results[searchTerm];
   };
 

@@ -3,24 +3,24 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const FormContainer = styled.form`
-  @media (max-width: 425px) {
+  @media (max-width: 660px) {
     margin: 0 auto;
   }
 `;
 
 const FormInput = styled.input`
-  height: 38px;
+  height: 40px;
+  font-size: 14px;
   line-height: 0;
   border: none;
   border-radius: 3px;
   outline: none;
-  padding-left: 12px;
+  padding: 0 12px;
   margin-right: 8px;
   color: #484848;
   cursor: default;
 
   &::placeholder {
-    font-size: 12px;
     color: #ccc;
   }
 
@@ -34,7 +34,7 @@ const FormInput = styled.input`
 
 const FormButton = styled.button`
   height: 40px;
-  font-size: 12px;
+  font-size: 14px;
   border: none;
   border-radius: 3px;
   color: #fff;

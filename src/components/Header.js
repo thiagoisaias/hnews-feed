@@ -25,7 +25,7 @@ const LogoContainer = styled.div`
   align-items: center;
   float: left;
   margin: 0 32px;
-  @media (max-width: 600px) {
+  @media (max-width: 660px) {
     display: none;
   }
 `;
