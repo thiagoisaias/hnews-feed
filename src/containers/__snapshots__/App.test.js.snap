@@ -5,11 +5,10 @@ exports[`App has a valid snapshot 1`] = `
   <Header
     onChange={[Function]}
     onSubmit={[Function]}
-    value=""
+    value="React"
   />
   <Table
     list={Array []}
-    onDismiss={[Function]}
   />
   <button
     onClick={[Function]}

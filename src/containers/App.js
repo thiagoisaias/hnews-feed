@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Table from "../components/Table";
 import Header from "../components/Header";
+import FiltersBar from "../components/FiltersBar";
 import axios from "axios";
 
 const DEFAULT_QUERY = "React";
 const DEFAULT_HPP = "20";
-const PATH_BASE = "https://hn.algolia.com/api/v1";
-const PATH_SEARCH = "/search";
-const PARAM_SEARCH = "query=";
+const PATH_BASE = "https://hn.algolia.com/api/v1/search?query=";
 const PARAM_PAGE = "page=";
 const PARAM_HPP = "hitsPerPage=";
 
@@ -64,30 +63,12 @@ class App extends Component {
 
   fetchSearchTopStories = (searchTerm, page = 0) => {
     axios(
-      `${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`
+      `${PATH_BASE}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`
     )
       .then(response => {
         this.setSearchTopStories(response.data);
       })
       .catch(error => this.setState({ error }));
-  };
-
-  onDismiss = id => {
-    const { searchKey, results } = this.state;
-    const { hits, page } = results[searchKey];
-
-    const filteredList = hits.filter(item => {
-      return item.objectID !== id;
-    });
-
-    console.log(id, "Called dismiss function");
-
-    this.setState({
-      results: {
-        ...results,
-        [searchKey]: { hits: filteredList, page: page }
-      }
-    });
   };
 
   onSearchChange = event => {
@@ -125,7 +106,8 @@ class App extends Component {
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
         />
-        <Table list={list} onDismiss={this.onDismiss} />
+        <FiltersBar />
+        <Table list={list} />
         <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
           Load More
         </button>

@@ -6,22 +6,19 @@ import PropTypes from "prop-types";
 const Container = styled.div`
   padding: 16px;
   background-color: #f6f6ef;
-  margin-top: 80px;
 `;
 
 const Table = props => {
+  const { list } = props;
   return (
     <Container>
-      {props.list.map(item => (
-        <TableItem key={item.objectID} onDismiss={props.onDismiss} {...item} />
-      ))}
+      {list.map(item => <TableItem key={item.objectID} {...item} />)}
     </Container>
   );
 };
 
 Table.propTypes = {
-  list: PropTypes.array.isRequired,
-  onDismiss: PropTypes.func.isRequired
+  list: PropTypes.array.isRequired
 };
 
 export default Table;
