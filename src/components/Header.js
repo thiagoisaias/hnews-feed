@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Search from "./Search";
 import LogoImagePath from "../images/logo-hn.png";
@@ -55,6 +56,12 @@ const Header = props => {
       <Search {...props} />
     </Container>
   );
+};
+
+Header.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default Header;

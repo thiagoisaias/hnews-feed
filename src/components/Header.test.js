@@ -14,7 +14,7 @@ describe("Header", () => {
         onChange={functionForTest}
         onSubmit={functionForTest}
       />
-    )
+    );
     const wrapper = shallow(HeaderForTest);
   });
 
@@ -28,7 +28,7 @@ describe("Header", () => {
         onChange={functionForTest}
         onSubmit={functionForTest}
       />
-    )
+    );
     expect(shallowToJson(HeaderForTest)).toMatchSnapshot();
   });
 });
