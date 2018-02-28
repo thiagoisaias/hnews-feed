@@ -4,33 +4,9 @@ import { shallowToJson } from "enzyme-to-json";
 import Search from "./Search";
 
 describe("Search", () => {
-  it("renders without crashing", () => {
-    const functionForTest = () => {
-      return;
-    };
-    const SearchForTest = (
-      <Search
-        value={""}
-        onChange={functionForTest}
-        onSubmit={functionForTest}
-      />
-    );
-    const wrapper = shallow(SearchForTest);
-  });
-
-  test("has a valid snapshot", () => {
-    const functionForTest = () => {
-      return;
-    };
-
-    const SearchForTest = (
-      <Search
-        value={""}
-        onChange={functionForTest}
-        onSubmit={functionForTest}
-      />
-    );
-    const component = shallow(SearchForTest);
-    expect(shallowToJson(component)).toMatchSnapshot();
+  it("renders properly", () => {
+    const props = { value: "", onChange: () => {}, onSubmit: () => {} };
+    const SearchTest = shallow(<Search {...props} />);
+    expect(shallowToJson(SearchTest)).toMatchSnapshot();
   });
 });

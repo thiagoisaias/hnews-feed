@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header has a valid snapshot 1`] = `null`;
+exports[`Header renders properly 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.a
+      href="/"
+    >
+      <styled.img
+        src="logo-hn.png"
+      />
+    </styled.a>
+    <styled.div>
+      Hacker News
+    </styled.div>
+  </styled.div>
+  <Search
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value=""
+  />
+</styled.div>
+`;

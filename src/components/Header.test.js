@@ -4,31 +4,9 @@ import { shallowToJson } from "enzyme-to-json";
 import Header from "./Header";
 
 describe("Header", () => {
-  it("renders without crashing", () => {
-    const functionForTest = () => {
-      return;
-    };
-    const HeaderForTest = (
-      <Header
-        value={""}
-        onChange={functionForTest}
-        onSubmit={functionForTest}
-      />
-    );
-    const wrapper = shallow(HeaderForTest);
-  });
-
-  it("has a valid snapshot", () => {
-    const functionForTest = () => {
-      return;
-    };
-    const HeaderForTest = (
-      <Header
-        value={""}
-        onChange={functionForTest}
-        onSubmit={functionForTest}
-      />
-    );
-    expect(shallowToJson(HeaderForTest)).toMatchSnapshot();
+  it("renders properly", () => {
+    const props = { value: "", onChange: () => {}, onSubmit: () => {} };
+    const HeaderTest = shallow(<Header {...props} />);
+    expect(shallowToJson(HeaderTest)).toMatchSnapshot();
   });
 });

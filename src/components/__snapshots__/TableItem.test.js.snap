@@ -1,3 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableItem has valid snapshot 1`] = `null`;
+exports[`TableItem renders properly 1`] = `
+<styled.div>
+  <styled.a
+    href="random.url.test"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    random item test
+  </styled.a>
+  <styled.ul>
+    <styled.li>
+       
+      553.43
+       points
+    </styled.li>
+    <styled.li>
+       
+      Author Lorem
+       
+    </styled.li>
+    <styled.li>
+       
+      10 months ago
+       
+    </styled.li>
+    <styled.li>
+      <a
+        href="random.url.test"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        (
+        random.url.test
+        )
+      </a>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;

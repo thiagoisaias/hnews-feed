@@ -88,6 +88,42 @@ class App extends Component {
     event.preventDefault();
   };
 
+  sortByPopularity = () => {
+    console.log("called sort by popularity");
+    const { searchKey } = this.state;
+    const list = [...this.state.results[searchKey].hits];
+
+    const sortedList = list.sort((a, b) => {
+      return b.points - a.points;
+    });
+
+    this.setState({
+      results: {
+        [searchKey]: {
+          hits: sortedList
+        }
+      }
+    });
+  };
+
+  sortByDate = () => {
+    console.log("called sort by date");
+    const { searchKey } = this.state;
+    const list = [...this.state.results[searchKey].hits];
+
+    const sortedList = list.sort((a, b) => {
+      return new Date(b.created_at) - new Date(a.created_at);
+    });
+
+    this.setState({
+      results: {
+        [searchKey]: {
+          hits: sortedList
+        }
+      }
+    });
+  };
+
   render() {
     const { results, searchTerm, searchKey, error } = this.state;
     const page =
@@ -106,7 +142,10 @@ class App extends Component {
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
         />
-        <FiltersBar />
+        <FiltersBar
+          sortByDate={this.sortByDate}
+          sortByPopularity={this.sortByPopularity}
+        />
         <Table list={list} />
         <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
           Load More

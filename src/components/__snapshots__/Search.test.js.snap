@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search has a valid snapshot 1`] = `
+exports[`Search renders properly 1`] = `
 <styled.form
   onSubmit={[Function]}
 >
