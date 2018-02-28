@@ -11,9 +11,7 @@ exports[`App has a valid snapshot 1`] = `
     sortByDate={[Function]}
     sortByPopularity={[Function]}
   />
-  <Table
-    list={Array []}
-  />
+  <Spinner />
   <button
     onClick={[Function]}
   >

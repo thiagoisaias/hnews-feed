@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Table from "../components/Table";
+import axios from "axios";
 import Header from "../components/Header";
 import FiltersBar from "../components/FiltersBar";
-import axios from "axios";
+import Table from "../components/Table";
+import Spinner from "../utils/Spinner";
 
 const DEFAULT_QUERY = "React";
-const DEFAULT_HPP = "20";
+const DEFAULT_HPP = "50";
 const PATH_BASE = "https://hn.algolia.com/api/v1/search?query=";
 const PARAM_PAGE = "page=";
 const PARAM_HPP = "hitsPerPage=";
@@ -20,6 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       results: null,
       searchKey: "",
       searchTerm: DEFAULT_QUERY,
@@ -49,7 +51,8 @@ class App extends Component {
       results: {
         ...results,
         [searchKey]: { hits: updatedHits, page }
-      }
+      },
+      isLoading: false
     });
   };
 
@@ -62,13 +65,16 @@ class App extends Component {
   };
 
   fetchSearchTopStories = (searchTerm, page = 0) => {
+    this.setState({
+      isLoading: true
+    });
     axios(
       `${PATH_BASE}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`
     )
       .then(response => {
         this.setSearchTopStories(response.data);
       })
-      .catch(error => this.setState({ error }));
+      .catch(error => this.setState({ error, isLoading: false }));
   };
 
   onSearchChange = event => {
@@ -146,7 +152,7 @@ class App extends Component {
           sortByDate={this.sortByDate}
           sortByPopularity={this.sortByPopularity}
         />
-        <Table list={list} />
+        {this.state.isLoading ? <Spinner /> : <Table list={list} />}
         <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
           Load More
         </button>

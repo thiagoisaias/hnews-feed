@@ -11,7 +11,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 80px;
-  border-bottom: 1px solid #eee;
 `;
 
 const FilterButton = styled.button`
