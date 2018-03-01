@@ -2,17 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Search from "./Search";
+import FiltersBar from "./FiltersBar";
 import LogoImagePath from "../images/logo-hn.png";
+
 
 const Container = styled.div`
   width: 100%;
   max-width: 900px;
+  position: fixed;
+  top: 0;
+`;
+
+
+const TopInnerContainer = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
   background-color: #333;
-  position: fixed;
-  top: 0;
 `;
 
 const Title = styled.div`
@@ -47,13 +53,19 @@ const LogoImage = styled.img`
 const Header = props => {
   return (
     <Container>
-      <LogoContainer>
-        <LogoLink href="/">
-          <LogoImage src={LogoImagePath} />
-        </LogoLink>
-        <Title>Hacker News</Title>
-      </LogoContainer>
-      <Search {...props} />
+      <TopInnerContainer>
+        <LogoContainer>
+          <LogoLink href="/">
+            <LogoImage src={LogoImagePath} />
+          </LogoLink>
+          <Title>Hacker News</Title>
+        </LogoContainer>
+        <Search {...props} />
+      </TopInnerContainer>
+      <FiltersBar
+        sortByDate={props.sortByDate}
+        sortByPopularity={props.sortByPopularity}
+      />
     </Container>
   );
 };
@@ -61,7 +73,9 @@ const Header = props => {
 Header.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  sortByDate: PropTypes.func.isRequired,
+  sortByPopularity: PropTypes.func.isRequired
 };
 
 export default Header;

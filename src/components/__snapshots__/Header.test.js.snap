@@ -3,21 +3,29 @@
 exports[`Header renders properly 1`] = `
 <styled.div>
   <styled.div>
-    <styled.a
-      href="/"
-    >
-      <styled.img
-        src="logo-hn.png"
-      />
-    </styled.a>
     <styled.div>
-      Hacker News
+      <styled.a
+        href="/"
+      >
+        <styled.img
+          src="logo-hn.png"
+        />
+      </styled.a>
+      <styled.div>
+        Hacker News
+      </styled.div>
     </styled.div>
+    <Search
+      onChange={[Function]}
+      onSubmit={[Function]}
+      sortByDate={[Function]}
+      sortByPopularity={[Function]}
+      value=""
+    />
   </styled.div>
-  <Search
-    onChange={[Function]}
-    onSubmit={[Function]}
-    value=""
+  <FiltersBar
+    sortByDate={[Function]}
+    sortByPopularity={[Function]}
   />
 </styled.div>
 `;

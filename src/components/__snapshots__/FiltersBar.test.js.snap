@@ -12,5 +12,8 @@ exports[`FiltersBar renders properly 1`] = `
   >
      Date 
   </styled.button>
+  <styled.button>
+     Range 
+  </styled.button>
 </styled.div>
 `;

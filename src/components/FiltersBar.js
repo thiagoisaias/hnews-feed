@@ -5,12 +5,11 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 100%;
   height: 50px;
-  padding: 10px 0;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  box-shadow: 0px 1.5px #eee;
 `;
 
 const FilterButton = styled.button`
@@ -23,7 +22,7 @@ const FilterButton = styled.button`
   border-radius: 3px;
   padding: 6px 12px;
   font-size: 14px;
-  margin: 0 16px;
+  margin: 0 8px;
 
   &:hover {
     background-color: #eee;
@@ -36,6 +35,7 @@ const FiltersBar = props => {
     <Container>
       <FilterButton onClick={sortByPopularity}> Popularity </FilterButton>
       <FilterButton onClick={sortByDate}> Date </FilterButton>
+      <FilterButton > Range </FilterButton>
     </Container>
   );
 };

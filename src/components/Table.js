@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const Container = styled.div`
   padding: 16px;
   background-color: #f6f6ef;
+  margin-top: 130px;
 `;
 
 const Table = props => {
