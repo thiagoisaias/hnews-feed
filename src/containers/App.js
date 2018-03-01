@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Header from "../components/Header";
-import FiltersBar from "../components/FiltersBar";
 import Table from "../components/Table";
 import Spinner from "../utils/Spinner";
 
 const DEFAULT_QUERY = "React";
-const DEFAULT_HPP = "50";
+const DEFAULT_HPP = "30";
+const DEFAULT_RANGE = "ALL";
 const PATH_BASE = "https://hn.algolia.com/api/v1/search?query=";
 const PARAM_PAGE = "page=";
 const PARAM_HPP = "hitsPerPage=";
@@ -15,6 +15,22 @@ const PARAM_HPP = "hitsPerPage=";
 const Container = styled.div`
   max-width: 900px;
   margin: 0 auto;
+`;
+
+const LoadMoreButton = styled.button`
+  display: block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: #ff742b;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 12px;
+  margin: 0 auto;
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 class App extends Component {
@@ -25,6 +41,7 @@ class App extends Component {
       results: null,
       searchKey: "",
       searchTerm: DEFAULT_QUERY,
+      searchRange: DEFAULT_RANGE,
       error: null
     };
   }
@@ -47,10 +64,14 @@ class App extends Component {
       results && results[searchKey] ? results[searchKey].hits : [];
     const updatedHits = [...oldHits, ...hits];
 
+    const filteredUpdatedHits = [...updatedHits].filter(hit => {
+      return hit.title && hit.points && hit.author && hit.created_at && hit.url;
+    });
+
     this.setState({
       results: {
         ...results,
-        [searchKey]: { hits: updatedHits, page }
+        [searchKey]: { hits: filteredUpdatedHits, page }
       },
       isLoading: false
     });
@@ -95,7 +116,6 @@ class App extends Component {
   };
 
   sortByPopularity = () => {
-    console.log("called sort by popularity");
     const { searchKey } = this.state;
     const list = [...this.state.results[searchKey].hits];
 
@@ -113,7 +133,6 @@ class App extends Component {
   };
 
   sortByDate = () => {
-    console.log("called sort by date");
     const { searchKey } = this.state;
     const list = [...this.state.results[searchKey].hits];
 
@@ -147,15 +166,21 @@ class App extends Component {
           value={searchTerm}
           onChange={this.onSearchChange}
           onSubmit={this.onSearchSubmit}
-        />
-        <FiltersBar
           sortByDate={this.sortByDate}
           sortByPopularity={this.sortByPopularity}
         />
-        {this.state.isLoading ? <Spinner /> : <Table list={list} />}
-        <button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
-          Load More
-        </button>
+        {this.state.isLoading ? (
+          <Spinner />
+        ) : (
+          <Fragment>
+            <Table list={list} />
+            <LoadMoreButton
+              onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
+            >
+              Load More
+            </LoadMoreButton>
+          </Fragment>
+        )}
       </Container>
     );
   }

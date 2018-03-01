@@ -2,15 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 50px;
-  height: 50px;
-  margin: 32px auto;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6ef;
 `;
 
 const StyledSpinner = styled.svg`
   animation: rotate 2s linear infinite;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 
   @keyframes rotate {
     100% {
