@@ -2,7 +2,6 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import { shallowToJson } from "enzyme-to-json";
 import TableItem from "./TableItem";
-import moment from "moment";
 
 describe("TableItem", () => {
   it("renders properly", () => {

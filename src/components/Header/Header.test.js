@@ -7,10 +7,10 @@ describe("Header", () => {
   it("renders properly", () => {
     const props = {
       value: "",
-      onChange: () => {},
-      onSubmit: () => {},
-      sortByDate: () => {},
-      sortByPopularity: () => {}
+      onChange: jest.fn(),
+      onSubmit: jest.fn(),
+      sortByDate: jest.fn(),
+      sortByPopularity: jest.fn()
     };
     const HeaderTest = shallow(<Header {...props} />);
     expect(shallowToJson(HeaderTest)).toMatchSnapshot();

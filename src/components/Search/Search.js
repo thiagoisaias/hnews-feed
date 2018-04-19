@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { devices } from "../../utils/devices";
 
 const FormContainer = styled.form`
   @media (max-width: 660px) {
@@ -24,10 +25,10 @@ const FormInput = styled.input`
     color: #ccc;
   }
 
-  @media (max-width: 425px) {
+  @media ${devices.small} {
     width: 180px;
   }
-  @media (min-width: 426px) {
+  @media ${devices.mediumUp} {
     width: 300px;
   }
 `;

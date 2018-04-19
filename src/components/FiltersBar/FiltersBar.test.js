@@ -5,7 +5,7 @@ import FiltersBar from "./FiltersBar";
 
 describe("FiltersBar", () => {
   it("renders properly", () => {
-    const props = { sortByDate: () => {}, sortByPopularity: () => {} };
+    const props = { sortByDate: jest.fn(), sortByPopularity: jest.fn() };
     const FiltersBarTest = shallow(<FiltersBar {...props} />);
     expect(shallowToJson(FiltersBarTest)).toMatchSnapshot();
   });

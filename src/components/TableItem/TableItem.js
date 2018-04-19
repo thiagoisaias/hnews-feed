@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import moment from "moment";
-import PropTypes from "prop-types";
+import { devices } from "../../utils/devices";
 
 const Container = styled.div`
   border-bottom: 1px solid #eee;
@@ -38,7 +39,7 @@ const MoreInfoUrl = MoreInfoItem.extend`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  @media (max-width: 425px) {
+  @media ${devices.small} {
     display: none;
   }
 `;
@@ -49,19 +50,27 @@ const Title = styled.a`
 `;
 
 const TableItem = props => {
-  const { title, points, author, created_at, url } = props;
+  const {
+    title,
+    points,
+    author,
+    created_at,
+    url,
+    story_title,
+    story_url
+  } = props;
   return (
     <Container>
       <Title href={url} rel="noopener noreferrer" target="_blank">
-        {title}
+        {title || story_title}
       </Title>
       <MoreInfoContainer>
         <MoreInfoItem> {points} points</MoreInfoItem>
         <MoreInfoItem> {author} </MoreInfoItem>
         <MoreInfoItem> {moment(created_at).fromNow()} </MoreInfoItem>
         <MoreInfoUrl>
-          <a href={url} rel="noopener noreferrer" target="_blank">
-            ({url})
+          <a href={url || story_url} rel="noopener noreferrer" target="_blank">
+            ({url || story_url})
           </a>
         </MoreInfoUrl>
       </MoreInfoContainer>

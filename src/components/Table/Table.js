@@ -1,7 +1,7 @@
 import React from "react";
-import TableItem from "./TableItem";
-import styled from "styled-components";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+import TableItem from "../TableItem/TableItem";
 
 const Container = styled.div`
   padding: 16px;

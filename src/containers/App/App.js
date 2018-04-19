@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import Header from "../components/Header";
-import Table from "../components/Table";
-import Spinner from "../utils/Spinner";
+import Header from "../../components/Header/Header";
+import Table from "../../components/Table/Table";
+import Spinner from "../../components/Spinner/Spinner";
 
 const DEFAULT_QUERY = "React";
-const DEFAULT_HPP = "30";
-const DEFAULT_RANGE = "ALL";
-const PATH_BASE = "https://hn.algolia.com/api/v1/search?query=";
+const DEFAULT_HPP = "70";
+const DEFALT_SEARCH_PARAM = "search?query=";
+const PATH_BASE = "https://hn.algolia.com/api/v1/";
 const PARAM_PAGE = "page=";
 const PARAM_HPP = "hitsPerPage=";
 
@@ -27,7 +27,7 @@ const LoadMoreButton = styled.button`
   border-radius: 3px;
   padding: 6px 12px;
   font-size: 12px;
-  margin: 0 auto;
+  margin: 16px auto;
   &:hover {
     opacity: 0.9;
   }
@@ -39,20 +39,20 @@ class App extends Component {
     this.state = {
       isLoading: false,
       results: null,
+      searchParam: DEFALT_SEARCH_PARAM,
       searchKey: "",
       searchTerm: DEFAULT_QUERY,
-      searchRange: DEFAULT_RANGE,
       error: null
     };
   }
 
   componentDidMount() {
-    const { searchTerm } = this.state;
+    const { searchParam, searchTerm } = this.state;
     this.setState({
       searchKey: searchTerm
     });
     if (this.needsToFetchStories) {
-      this.fetchSearchTopStories(searchTerm);
+      this.fetchSearchTopStories(searchParam, searchTerm);
     }
   }
 
@@ -65,7 +65,13 @@ class App extends Component {
     const updatedHits = [...oldHits, ...hits];
 
     const filteredUpdatedHits = [...updatedHits].filter(hit => {
-      return hit.title && hit.points && hit.author && hit.created_at && hit.url;
+      return (
+        (hit.title || hit.story_title) &&
+        hit.points &&
+        hit.author &&
+        hit.created_at &&
+        (hit.url || hit.story_url)
+      );
     });
 
     this.setState({
@@ -85,12 +91,12 @@ class App extends Component {
     return !this.state.results[searchTerm];
   };
 
-  fetchSearchTopStories = (searchTerm, page = 0) => {
+  fetchSearchTopStories = (searchParam, searchTerm, page = 0) => {
     this.setState({
       isLoading: true
     });
     axios(
-      `${PATH_BASE}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`
+      `${PATH_BASE}${searchParam}${searchTerm}&${PARAM_PAGE}${page}&${PARAM_HPP}${DEFAULT_HPP}`
     )
       .then(response => {
         this.setSearchTopStories(response.data);
@@ -105,12 +111,12 @@ class App extends Component {
   };
 
   onSearchSubmit = event => {
-    const { searchTerm } = this.state;
+    const { searchParam, searchTerm } = this.state;
     this.setState({
       searchKey: searchTerm
     });
     if (this.needsToFetchStories(searchTerm)) {
-      this.fetchSearchTopStories(searchTerm);
+      this.fetchSearchTopStories(searchParam, searchTerm);
     }
     event.preventDefault();
   };
@@ -150,7 +156,7 @@ class App extends Component {
   };
 
   render() {
-    const { results, searchTerm, searchKey, error } = this.state;
+    const { results, searchParam, searchTerm, searchKey, error } = this.state;
     const page =
       (results && results[searchKey] && results[searchKey].page) || 0;
     const list =
@@ -170,12 +176,14 @@ class App extends Component {
           sortByPopularity={this.sortByPopularity}
         />
         {this.state.isLoading ? (
-          <Spinner />
+          <Spinner height={48} width={48} />
         ) : (
           <Fragment>
             <Table list={list} />
             <LoadMoreButton
-              onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
+              onClick={() =>
+                this.fetchSearchTopStories(searchParam, searchKey, page + 1)
+              }
             >
               Load More
             </LoadMoreButton>

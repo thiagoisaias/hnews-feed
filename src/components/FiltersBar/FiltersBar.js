@@ -33,9 +33,9 @@ const FiltersBar = props => {
   const { sortByDate, sortByPopularity } = props;
   return (
     <Container>
+      Sort by:
       <FilterButton onClick={sortByPopularity}> Popularity </FilterButton>
       <FilterButton onClick={sortByDate}> Date </FilterButton>
-      <FilterButton > Range </FilterButton>
     </Container>
   );
 };

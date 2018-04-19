@@ -1,19 +1,19 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6f6ef;
 `;
 
 const StyledSpinner = styled.svg`
   animation: rotate 2s linear infinite;
-  width: 80px;
-  height: 80px;
+  width: ${props => props.width || "24px"};
+  height: ${props => props.height || "24px"};
 
   @keyframes rotate {
     100% {
@@ -38,20 +38,26 @@ const StyledSpinner = styled.svg`
 `;
 
 const StyledCircle = styled.circle`
-  stroke: #777;
+  stroke: #999;
   stroke-linecap: round;
   stroke-width: 1.725;
   animation: dash 1.5s ease-in-out infinite;
 `;
 
 const Spinner = props => {
+  const { width, height } = props;
   return (
     <Container>
-      <StyledSpinner viewBox="0 0 50 50">
-        <StyledCircle cx="25" cy="25" r="15" fill="none" />
+      <StyledSpinner width={width} height={height} viewBox={`0 0 ${width*2} ${height*2}`}>
+        <StyledCircle cx={width} cy={height} r={width / 2} fill="none" />
       </StyledSpinner>
     </Container>
   );
+};
+
+Spinner.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired
 };
 
 export default Spinner;

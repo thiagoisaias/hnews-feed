@@ -2,6 +2,7 @@
 
 exports[`FiltersBar renders properly 1`] = `
 <styled.div>
+  Sort by:
   <styled.button
     onClick={[Function]}
   >
@@ -11,9 +12,6 @@ exports[`FiltersBar renders properly 1`] = `
     onClick={[Function]}
   >
      Date 
-  </styled.button>
-  <styled.button>
-     Range 
   </styled.button>
 </styled.div>
 `;

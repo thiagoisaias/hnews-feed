@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Search from "./Search";
-import FiltersBar from "./FiltersBar";
-import LogoImagePath from "../images/logo-hn.png";
-
+import Search from "../Search/Search";
+import FiltersBar from "../FiltersBar/FiltersBar";
+import LogoImagePath from "../../assets/images/logo-hn.png";
 
 const Container = styled.div`
   width: 100%;
@@ -12,7 +11,6 @@ const Container = styled.div`
   position: fixed;
   top: 0;
 `;
-
 
 const TopInnerContainer = styled.div`
   height: 80px;
