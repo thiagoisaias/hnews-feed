@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { devices } from "../../utils/devices";
 
 const FormContainer = styled.form`
-  @media (max-width: 660px) {
+  @media ${devices.small} {
     margin: 0 auto;
   }
 `;

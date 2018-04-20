@@ -10,10 +10,10 @@ const Container = styled.div`
 `;
 
 const Table = props => {
-  const { list } = props;
+  const { list, page } = props;
   return (
     <Container>
-      {list.map(item => <TableItem key={item.objectID} {...item} />)}
+      {list.map(item => <TableItem key={item.objectID + page} {...item} />)}
     </Container>
   );
 };

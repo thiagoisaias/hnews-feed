@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Search from "../Search/Search";
 import FiltersBar from "../FiltersBar/FiltersBar";
 import LogoImagePath from "../../assets/images/logo-hn.png";
+import { devices } from "../../utils/devices";
 
 const Container = styled.div`
   width: 100%;
@@ -30,7 +31,8 @@ const LogoContainer = styled.div`
   align-items: center;
   float: left;
   margin: 0 32px;
-  @media (max-width: 660px) {
+  
+  @media ${devices.small} {
     display: none;
   }
 `;

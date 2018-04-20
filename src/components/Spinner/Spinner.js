@@ -40,7 +40,7 @@ const StyledSpinner = styled.svg`
 const StyledCircle = styled.circle`
   stroke: #999;
   stroke-linecap: round;
-  stroke-width: 1.725;
+  stroke-width: 2.5;
   animation: dash 1.5s ease-in-out infinite;
 `;
 
