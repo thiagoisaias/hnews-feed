@@ -12,6 +12,7 @@ exports[`App renders properly 1`] = `
   <React.Fragment>
     <Table
       list={Array []}
+      page={0}
     />
     <styled.button
       onClick={[Function]}
