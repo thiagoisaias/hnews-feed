@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FetchContainer renders properly 1`] = `
+<App
+  error=""
+  fetchSearchTopStories={[Function]}
+  isLoading={true}
+  results={Object {}}
+  searchKey="React"
+  sortByDate={[Function]}
+  sortByPopularity={[Function]}
+/>
+`;

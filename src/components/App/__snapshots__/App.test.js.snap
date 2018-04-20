@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders properly 1`] = `
+<styled.div>
+  <Header
+    onChange={[Function]}
+    onSubmit={[Function]}
+    sortByDate={[Function]}
+    sortByPopularity={[Function]}
+    value=""
+  />
+  <React.Fragment>
+    <Table
+      list={Array []}
+    />
+    <styled.button
+      onClick={[Function]}
+    >
+      Load More
+    </styled.button>
+  </React.Fragment>
+</styled.div>
+`;
